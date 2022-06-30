@@ -1,17 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import { BeakerIcon, InboxIcon, TrashIcon } from '@heroicons/react/solid'
+import { useQuery } from 'react-query';
 
 const CompleteTask = () => {
-    const [completeData,setCompleteData]=useState([])
-    useEffect(()=>{
-       fetch('http://localhost:4000/todo')
-       .then(res=>res.json())
-       .then(data=>{
-        const newDAta=data.filter(dt=>dt.status==="completed")
-        setCompleteData(newDAta)
-       })
-    },[])
+  
+    const{data,isLoading,refetch}=useQuery('completedTodo',()=>fetch('http://localhost:4000/todo').then(res=>res.json()))
+    if(isLoading){
+        return ;
+    }
+   const completedTodo=data.filter(item=>item.status ==="completed")
+  
+    const handleRemoveTodo=(id)=>{
+        fetch(`http://localhost:4000/todo/${id}`,{
+            method:"DELETE"
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+            refetch()
+        })
+        
+    }
+  
   
     return (
         <div className='max-w-6xl mx-auto'>
@@ -19,13 +30,13 @@ const CompleteTask = () => {
              <ul className='w-8/12 mx-auto'>
              <h1 className='text-3xl underline my-5 text-black font-semibold '>Completed Task List </h1>
                 {
-                    completeData.map(data=>(
+                    completedTodo.map(data=>(
                         <div className='flex bg-white mt-1 rounded-[8px] p-2 items-center justify-between'>
                                  <div className='flex '>
                                  <InboxIcon className='w-12 h-12 mr-2 text-primary' />
-                                 <li className='text-md  w-[500px] h-auto p-2 font-bold '>{data.todoDescription}</li>
+                                 <li className='text-md  w-[500px] h-auto p-2 text-black '>{data.todoDescription}</li>
                                  </div>
-                                 <TrashIcon className='w-6 h-6 mr-5 text-red-600' />
+                                 <TrashIcon onClick={()=>handleRemoveTodo(data._id)} className='w-6 cursor-pointer h-6 mr-5 text-red-600' />
                         </div>
                     ))
                 }

@@ -53,8 +53,8 @@ const TodoItems = ({item,refetch}) => {
       <div className='divider p-0 m-0 '></div>
       {
          isEdit && <>
-          <form onSubmit={handleUpdate} className='bg-white rounded-lg mt-2 text-primary  p-2'>
-          <input name="todoUpdate" required type="text" placeholder="Type here" class="input input-bordered input-primary w-full " />
+          <form onSubmit={handleUpdate} className='bg-white rounded-lg mt-2 text-black text-md  p-2'>
+          <input name="todoUpdate" required type="text" placeholder="Type here" class="input input-bordered  w-full " />
           <button type='submit'  className=' btn btn-sm btn-primary text-white mt-2'>Update</button>
           </form>
          </>
