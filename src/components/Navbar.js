@@ -24,8 +24,20 @@ const Navbar = ({ setTodo, todo }) => {
 
   const handleClicked = (e) => {
     e.preventDefault();
-    setTodo([...todo, e.target.todo.value]);
-    e.target.reset()
+    const todoDescription=e.target.todo.value
+    fetch('http://localhost:4000/addtodo',{
+      method:"POST",
+      headers:{
+
+       'Content-type': 'application/json'},
+       body:JSON.stringify({todoDescription})
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      console.log(data)
+      e.target.reset()
+    })
+    // setTodo([...todo, e.target.todo.value]);
   };
 
   return (
