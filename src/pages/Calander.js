@@ -8,7 +8,7 @@ const Calander = () => {
     return (
         <div>
           
-            <div className='w-full min-h-screen flex justify-center items-center'>
+            <div className='w-full min-h-screen flex justify-center items-center mt-10 lg:mt-0'>
 
             <Calendar  onChange={onChange} value={value} />
             </div>

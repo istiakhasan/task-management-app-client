@@ -35,10 +35,10 @@ const Todo = () => {
     <>
       
       <div className=" min-h-[96vh] flex justify-center items-center text-black mt-10">
-        <div className=" w-5/12  rounded-[8px] bg-white  border-secondary">
+        <div className=" lg:w-5/12 w-11/12  rounded-[8px] bg-white  border-secondary">
           
-          <div class="card w-10/12 mx-auto   text-primary-content text-center">
-            <div class="card-body">
+          <div className="card lg:w-10/12 w-[100%]  mx-auto  text-primary-content text-center">
+            <div className="card-body">
                 <h1 className="text-5xl text-primary underline">ToDo List</h1>
                 <form className="my-4" action="" onSubmit={handleClicked} >
             <input
@@ -46,18 +46,18 @@ const Todo = () => {
               name="todo"
               type="text"
               placeholder="Add your daily task"
-              class="input input-bordered text-black w-full "
+              className="input input-bordered text-black w-full "
             />
             <button className="btn btn-primary mt-2">Add Task</button>
             
           </form>
-          <div class="divider"></div> 
+          <div className="divider"></div> 
               <ul className="text-white">
                 {
                     todo.length===0&& <h1 className="mt-5">List is empty</h1>
                 }
                 { todo.map((item) => (
-                  <TodoItems refetch={refetch} item={item} />
+                  <TodoItems key={item._id} refetch={refetch} item={item} />
                 ))}
               </ul>
             </div>

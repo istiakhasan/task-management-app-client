@@ -35,7 +35,7 @@
     border-radius: 20px;
     margin: 10px;
     height: 60px;
-    outline: none;
+  
   }
   .react-calendar button:enabled:hover {
     cursor: pointer;
@@ -122,4 +122,25 @@
   }
   .react-calendar--selectRange .react-calendar__tile--hover {
     background-color: #e6e6e6;
+  }
+
+
+
+  /* ================================== */
+  @media only screen and (max-width: 600px) {
+    .react-calendar {
+        width: 95%;
+        background: rgb(228, 221, 245);
+        border: 1px solid #d8d8b4;
+       
+      
+      }
+      .react-calendar button {
+        margin: 0;
+        border: 0;
+        border-radius: 20px;
+        margin: 5px;
+        height: 50px;
+      
+      }
   }
