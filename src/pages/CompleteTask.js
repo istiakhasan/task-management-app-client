@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Navbar from '../components/Navbar';
 
 const CompleteTask = () => {
     const [completeData,setCompleteData]=useState([])
@@ -10,13 +11,18 @@ const CompleteTask = () => {
         setCompleteData(newDAta)
        })
     },[])
-    console.log(completeData)
+  
     return (
         <div>
+            <Navbar />
              <h1>Completed Task List </h1>
-             <ul className='w-6/12'>
+             <ul className='w-4/12'>
                 {
-                    completeData.map(data=><li className='text-xl bg-white mt-2 p-2 font-bold '>{data.todoDescription}</li>)
+                    completeData.map(data=>(
+                        <>
+                       <li className='text-xl bg-white mt-2 p-2 font-bold '>{data.todoDescription}</li>
+                        </>
+                    ))
                 }
              </ul>
         </div>

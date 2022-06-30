@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import TodoItems from "../components/TodoItems";
+import {useQuery} from 'react-query'
 
 const Todo = () => {
-  const [todo, setTodo] = useState([]);
-  useEffect(()=>{
-   fetch('http://localhost:4000/todo')
-   .then(res=>res.json())
-   .then(data=>setTodo(data))
-  },[])
+  // const [todo, setTodo] = useState([]);
+  
+  const {data:todo,isLoading,refetch}=useQuery('todo',()=>fetch('http://localhost:4000/todo').then(res=>res.json()))
+  // useEffect(()=>{
+  //  fetch()
+  //  .then(res=>res.json())
+  //  .then(data=>setTodo(data))
+  // },[])
+  if(isLoading){
+    return ;
+  }
 
   return (
     <>
-
+       <Navbar refetch={refetch} />
       <div className=" min-h-[96vh] flex justify-center items-center">
         <div className=" w-4/12">
           <div class="card   text-primary-content text-center">
@@ -23,7 +29,7 @@ const Todo = () => {
                     todo.length===0&& <h1 className="mt-5">List is empty</h1>
                 }
                 { todo.map((item) => (
-                  <TodoItems item={item} />
+                  <TodoItems refetch={refetch} item={item} />
                 ))}
               </ul>
             </div>

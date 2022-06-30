@@ -1,7 +1,8 @@
 import React from "react";
 import {Link} from 'react-router-dom'
 
-const Navbar = () => {
+
+const Navbar = ({refetch}) => {
   const menuItems = (
     <>
       <li>
@@ -22,10 +23,11 @@ const Navbar = () => {
   );
 
 
-  const handleClicked = (e) => {
+  const handleClicked = async(e) => {
     e.preventDefault();
     const todoDescription=e.target.todo.value
-    fetch('http://localhost:4000/todo',{
+  
+      fetch('http://localhost:4000/todo',{
       method:"POST",
       headers:{
 
@@ -35,6 +37,7 @@ const Navbar = () => {
     .then(res=>res.json())
     .then(data=>{
       console.log(data)
+       refetch()
       e.target.reset()
     })
   
@@ -73,6 +76,7 @@ const Navbar = () => {
         <div className="navbar-center">
           <form className="flex" action="" onSubmit={handleClicked}>
             <input
+               required
               name="todo"
               type="text"
               placeholder="Type here"
