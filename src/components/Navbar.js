@@ -1,6 +1,6 @@
 import React from "react";
 
-const Navbar = ({ setTodo, todo }) => {
+const Navbar = () => {
   const menuItems = (
     <>
       <li>
@@ -20,7 +20,7 @@ const Navbar = ({ setTodo, todo }) => {
       </li>
     </>
   );
-  console.log(todo);
+
 
   const handleClicked = (e) => {
     e.preventDefault();
@@ -37,7 +37,7 @@ const Navbar = ({ setTodo, todo }) => {
       console.log(data)
       e.target.reset()
     })
-    // setTodo([...todo, e.target.todo.value]);
+  
   };
 
   return (
