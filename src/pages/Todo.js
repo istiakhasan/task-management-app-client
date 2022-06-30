@@ -5,11 +5,11 @@ import TodoItems from "../components/TodoItems";
 const Todo = () => {
   const [todo, setTodo] = useState([]);
   useEffect(()=>{
-   fetch('http://localhost:4000/addtodo')
+   fetch('http://localhost:4000/todo')
    .then(res=>res.json())
    .then(data=>setTodo(data))
   },[])
-console.log(todo,"hi this is demo")
+
   return (
     <>
 

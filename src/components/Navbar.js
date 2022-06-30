@@ -1,23 +1,23 @@
 import React from "react";
+import {Link} from 'react-router-dom'
 
 const Navbar = () => {
   const menuItems = (
     <>
       <li>
-        <a href="www.facebook.com">Completed Tasks</a>
+        <Link to="/complete">Completed Tasks</Link>
       </li>
       <li>
-        <a href="www.facebook.com">To-Do</a>
+        <Link to="/home">To-Do</Link>
       </li>
       <li>
-        <a href="www.facebook.com">Calender</a>
+        <Link to="/calender">Calender</Link>
       </li>
       <li>
-        <a href="www.facebook.com">Calender</a>
+        <Link to="/blog">Calender</Link>
       </li>
-      <li>
-        <a href="www.facebook.com">Calender</a>
-      </li>
+     
+     
     </>
   );
 
@@ -25,7 +25,7 @@ const Navbar = () => {
   const handleClicked = (e) => {
     e.preventDefault();
     const todoDescription=e.target.todo.value
-    fetch('http://localhost:4000/addtodo',{
+    fetch('http://localhost:4000/todo',{
       method:"POST",
       headers:{
 
