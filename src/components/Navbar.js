@@ -5,16 +5,16 @@ import {Link} from 'react-router-dom'
 const Navbar = ({refetch}) => {
   const menuItems = (
     <>
-      <li>
+      <li className="mr-5 hover:bg-primary rounded ">
         <Link to="/complete">Completed Tasks</Link>
       </li>
-      <li>
+      <li className="mr-5 hover:bg-primary rounded ">
         <Link to="/home">To-Do</Link>
       </li>
-      <li>
+      <li className="mr-5 hover:bg-primary rounded ">
         <Link to="/calender">Calender</Link>
       </li>
-      <li>
+      <li className="mr-5 hover:bg-primary rounded ">
         <Link to="/blog">Calender</Link>
       </li>
      
@@ -45,7 +45,7 @@ const Navbar = ({refetch}) => {
 
   return (
     <div>
-      <div class="navbar bg-secondary font-bold text-[#e0ebeb]">
+      <div class="navbar bg-[rgb(82,37,124)] font-bold text-[#e0ebeb]">
         <div class="navbar-start">
           <div class="dropdown">
             <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -71,10 +71,10 @@ const Navbar = ({refetch}) => {
               {menuItems}
             </ul>
           </div>
-          <ul class="menu hidden lg:flex menu-horizontal p-0">{menuItems}</ul>
+         
         </div>
         <div className="navbar-center">
-          <form className="flex" action="" onSubmit={handleClicked}>
+          {/* <form className="flex" action="" onSubmit={handleClicked}>
             <input
                required
               name="todo"
@@ -82,7 +82,12 @@ const Navbar = ({refetch}) => {
               placeholder="Type here"
               class="input input-bordered input-primary w-full max-w-xs"
             />
-          </form>
+            <button className="btn btn-primary ml-2">Add Note</button>
+          </form> */}
+           <ul class="menu hidden lg:flex menu-horizontal p-0">{menuItems}</ul>
+        </div>
+        <div className="navbar-end">
+
         </div>
       </div>
     </div>

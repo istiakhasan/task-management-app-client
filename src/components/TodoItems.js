@@ -41,20 +41,21 @@ const TodoItems = ({item,refetch}) => {
  
     return (
       item.status !=="completed" &&    <>
-      <li className='bg-white text-secondary mt-2 flex p-4 justify-between items-center'>
-       <div className='flex items-center'>
-      <input onChange={handleClick} type="radio"   name="radio" class="radio radio-secondary mr-2" />
-      <span className=''>{item.todoDescription} </span>
+      <li className='bg-white text-secondary  rounded-lg flex p-2 justify-between items-center'>
+       <div className='flex  items-center'>
+      <input onChange={handleClick} type="checkbox"   name="radio" class="checkbox checkbox-primary mr-2" />
+      <span className='w-[300px] overflow-hidden text-black text-start text-lg'>{item.todoDescription} </span>
       </div>  
-      <span onClick={()=>setIsEdit(!isEdit)} className='btn btn-secondary btn-sm'>{isEdit?"Cancel":"Edit"}</span>
+      <span onClick={()=>setIsEdit(!isEdit)} className='btn btn-primary btn-sm'>{isEdit?"Cancel":"Edit"}</span>
      
      
       </li>
+      <div className='divider p-0 m-0 '></div>
       {
          isEdit && <>
-          <form onSubmit={handleUpdate} className='bg-white mt-2 text-primary flex justify-between items-center p-2'>
-          <input name="todoUpdate" required type="text" placeholder="Type here" class="input input-bordered input-primary w-[80%] " />
-          <button type='submit'  className=' btn btn-sm btn-primary text-white'>Update</button>
+          <form onSubmit={handleUpdate} className='bg-white rounded-lg mt-2 text-primary  p-2'>
+          <input name="todoUpdate" required type="text" placeholder="Type here" class="input input-bordered input-primary w-full " />
+          <button type='submit'  className=' btn btn-sm btn-primary text-white mt-2'>Update</button>
           </form>
          </>
         }
