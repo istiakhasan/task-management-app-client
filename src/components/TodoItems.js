@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 
 const TodoItems = ({item,refetch}) => {
     const [isEdit,setIsEdit]=useState(false)
    
-    const handleClick=(e)=>{
+    const handleCompleteTask=(e)=>{
 
         const isRadioCheck=e.target.checked
         if(isRadioCheck){
@@ -12,6 +13,7 @@ const TodoItems = ({item,refetch}) => {
             })
             .then(res=>res.json())
             .then(data=>{
+                toast("Task completed")
                 refetch()
                 })
         }
@@ -32,6 +34,7 @@ const TodoItems = ({item,refetch}) => {
              })
              .then(res=>res.json())
              .then(data=>{
+                toast.success("Updated Successfully ...")
                  refetch()
                  setIsEdit(false)
                  e.target.reset()
@@ -43,7 +46,7 @@ const TodoItems = ({item,refetch}) => {
       item.status !=="completed" &&    <>
       <li className='bg-white text-secondary  rounded-lg flex p-2 justify-between items-center'>
        <div className='flex  items-center'>
-      <input onChange={handleClick} type="checkbox"   name="radio" className="checkbox checkbox-primary mr-2" />
+      <input onChange={handleCompleteTask} type="checkbox"   name="radio" className="checkbox checkbox-primary mr-2" />
       <span className='lg:w-[300px] w-[150px] overflow-hidden text-black text-start text-lg'>{item.todoDescription} </span>
       </div>  
       <span onClick={()=>setIsEdit(!isEdit)} className='btn btn-primary btn-sm'>{isEdit?"Cancel":"Edit"}</span>
