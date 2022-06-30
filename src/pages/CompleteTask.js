@@ -2,6 +2,7 @@ import React from "react";
 import { InboxIcon, TrashIcon } from "@heroicons/react/solid";
 import { useQuery } from "react-query";
 import {toast} from 'react-toastify'
+import { Helmet } from 'react-helmet-async';
 
 const CompleteTask = () => {
   const { data, isLoading, refetch } = useQuery("completedTodo", () =>
@@ -25,6 +26,7 @@ const CompleteTask = () => {
 
   return (
     <div className="lg:max-w-6xl mx-auto">
+        <Helmet><title>Complted Task</title></Helmet>
       <ul className="lg:w-8/12 w-11/12 mx-auto">
         <h1 className="text-3xl underline my-5 text-black font-semibold ">
           Completed Task List{" "}

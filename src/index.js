@@ -9,6 +9,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from 'react-query'
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const queryClient = new QueryClient()
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -17,7 +18,10 @@ root.render(
 
   <React.StrictMode>
     <BrowserRouter>
+    <HelmetProvider>
+
     <App />
+    </HelmetProvider>
     </BrowserRouter>
   </React.StrictMode>
   </QueryClientProvider>

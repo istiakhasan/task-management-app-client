@@ -2,6 +2,7 @@ import React from "react";
 import TodoItems from "../components/TodoItems";
 import { useQuery } from "react-query";
 import {toast} from 'react-toastify'
+import { Helmet } from 'react-helmet-async';
 
 const Todo = () => {
   const {
@@ -37,6 +38,7 @@ const Todo = () => {
   return (
     <>
       <div className=" min-h-[96vh] flex justify-center items-center text-black mt-10">
+        <Helmet ><title>Home</title></Helmet>
         <div className=" lg:w-5/12 w-11/12  rounded-[8px] bg-white  border-secondary">
           <div className="card lg:w-10/12 w-[100%]  mx-auto  text-primary-content text-center">
             <div className="card-body">
