@@ -1,12 +1,19 @@
-
 import './App.css';
-import Navbar from './components/Navbar';
+
+import {Routes,Route} from 'react-router-dom'
+import Todo from './pages/Todo';
+
 
 function App() {
+
+
   return (
-    <div className="App bg-[#e0ebeb] h-screen">
-          <Navbar />
-          <h2 className='text-custombg bg-custombg'>Hi i am istiak</h2>
+    <div className="App bg-primary min-h-screen">
+        
+          <Routes>
+            <Route path='/' element={<Todo />} />
+            <Route path='/home' element={<Todo/>} />
+          </Routes>
     </div>
   );
 }
