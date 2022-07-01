@@ -8,7 +8,7 @@ const TodoItems = ({item,refetch}) => {
 
         const isRadioCheck=e.target.checked
         if(isRadioCheck){
-            fetch(`http://localhost:4000/todo/${item._id}`,{
+            fetch(`https://todocloudapp.herokuapp.com/todo/${item._id}`,{
                 method:"PUT"
             })
             .then(res=>res.json())
@@ -25,7 +25,7 @@ const TodoItems = ({item,refetch}) => {
         const updateContent=e.target.todoUpdate.value
   
       
-             fetch(`http://localhost:4000/todo/${item._id}`,{
+             fetch(`https://todocloudapp.herokuapp.com/todo/${item._id}`,{
                  method:"PATCH",
                  headers:{
 

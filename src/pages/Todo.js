@@ -1,8 +1,8 @@
 import React from "react";
 import TodoItems from "../components/TodoItems";
 import { useQuery } from "react-query";
-import {toast} from 'react-toastify'
-import { Helmet } from 'react-helmet-async';
+import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const Todo = () => {
   const {
@@ -10,7 +10,7 @@ const Todo = () => {
     isLoading,
     refetch,
   } = useQuery("todo", () =>
-    fetch("http://localhost:4000/todo").then((res) => res.json())
+    fetch("https://todocloudapp.herokuapp.com/todo").then((res) => res.json())
   );
 
   if (isLoading) {
@@ -20,7 +20,7 @@ const Todo = () => {
     e.preventDefault();
     const todoDescription = e.target.todo.value;
 
-    fetch("http://localhost:4000/todo", {
+    fetch("https://todocloudapp.herokuapp.com/todo", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -29,7 +29,7 @@ const Todo = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        toast.success("New task added ")
+        toast.success("New task added ");
         refetch();
         e.target.reset();
       });
@@ -38,7 +38,9 @@ const Todo = () => {
   return (
     <>
       <div className=" min-h-[96vh] flex justify-center items-center text-black mt-10">
-        <Helmet ><title>Home</title></Helmet>
+        <Helmet>
+          <title>Home</title>
+        </Helmet>
         <div className=" lg:w-5/12 w-11/12  rounded-[8px] bg-white  border-secondary">
           <div className="card lg:w-10/12 w-[100%]  mx-auto  text-primary-content text-center">
             <div className="card-body">

@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet-async';
 
 const CompleteTask = () => {
   const { data, isLoading, refetch } = useQuery("completedTodo", () =>
-    fetch("http://localhost:4000/todo").then((res) => res.json())
+    fetch("https://todocloudapp.herokuapp.com/todo").then((res) => res.json())
   );
   if (isLoading) {
     return;
@@ -14,7 +14,7 @@ const CompleteTask = () => {
   const completedTodo = data.filter((item) => item.status === "completed");
 
   const handleRemoveTodo = (id) => {
-    fetch(`http://localhost:4000/todo/${id}`, {
+    fetch(`https://todocloudapp.herokuapp.com/todo/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
