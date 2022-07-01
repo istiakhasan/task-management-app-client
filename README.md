@@ -1,6 +1,6 @@
 # Todo Cloud
-## Live Website Link [TodoCloud](https://grandauto-da398.web.app/)
-Live Site Full Url Here: [https://grandauto-da398.web.app/](https://grandauto-da398.web.app/)
+## Live Website Link [TodoCloud](https://todo-cloud.netlify.app/)
+Live Site Full Url Here: [https://todo-cloud.netlify.app/](https://todo-cloud.netlify.app/)
 
 
 ## Project features
